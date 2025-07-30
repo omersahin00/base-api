@@ -3,7 +3,7 @@ import http from "http";
 import cors from "cors";
 import { sequelize } from "@data/db";
 import cookieParser from "cookie-parser";
-import { environment, port } from "./config";
+import { database, environment, port } from "./config";
 import Schedulers from "./schedulers";
 
 const app = express();
@@ -30,9 +30,11 @@ app.use(unknownRoute);
 
 (async (): Promise<void> => {
     try {
-        await sequelize.sync({
-            alter: environment === "development" ? true : false
-        });
+        if (database.access !== "false") {
+            await sequelize.sync({
+                alter: environment === "development" ? true : false
+            });
+        }
 
         server.listen(port, () => {
             logger.info(`API listen on port ${port}`, 1);

@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import { database as db } from "../config";
+import { database, database as db } from "../config";
 
 const sequelize = new Sequelize(db.database, db.user, db.password, {
     host: db.host,
@@ -43,7 +43,7 @@ const checkConnection = async (): Promise<boolean> => {
 };
 
 (async () => {
-    if (!(process.env.DATABASE_ACCESS === "false")) { // Alt işlem parçalarının veri tabanına bağlanması engellendi.
+    if (database.access !== "false" && process.env.DATABASE_ACCESS !== "false") {
         if (await checkConnection()) {
             await connect();
         } else {

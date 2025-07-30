@@ -14,7 +14,8 @@ const config = {
         password: process.env.DB_PASSWORD || "",
         database: process.env.DB_DATABASE || "baseApiDb",
         dialect: "mysql" as Dialect,
-        storage: "./session.mysql"
+        storage: "./session.mysql",
+        access: process.env.DATABASE_ACCESS || "true",
     },
 
     token: {

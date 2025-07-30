@@ -1,7 +1,10 @@
 import { Log } from "@/models";
+import { database } from "@/config";
 
 const logDB = async (message: string, code: number, level: string): Promise<boolean> => {
     try {
+        if (database.access === "false") return true;
+
         await Log.create({
             level,
             code,
