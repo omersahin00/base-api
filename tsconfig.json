@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@config/*": ["./config/*"],
+      "@data/*": ["./data/*"],
+      "@middlewares/*": ["./middlewares/*"],
+      "@restAPI/*": ["./restAPI/*"],
+      "@validation/*": ["./validation/*"],
+      "@schedulers/*": ["./schedulers/*"],
+      "@services/*": ["./services/*"]
+    }
+  },
+  "include": [
+    "./**/*.ts",
+    "./**/*.d.ts",
+    "./types/**/*.d.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
+}

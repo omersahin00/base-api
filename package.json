@@ -1,0 +1,42 @@
+{
+  "name": "case-study",
+  "version": "1.0.0",
+  "main": "app.ts",
+  "scripts": {
+    "start": "npm run build && node dist/app.js",
+    "dev": "nodemon",
+    "build": "tsc && tsc-alias",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "child_process": "^1.0.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "geolib": "^3.3.4",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.1",
+    "node-cron": "^4.1.0",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.8",
+    "@types/cors": "^2.8.18",
+    "@types/express": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^22.15.30",
+    "@types/node-cron": "^3.0.11",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.8.3"
+  }
+}

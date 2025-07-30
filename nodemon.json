@@ -1,0 +1,5 @@
+{
+  "watch": ["src", "app.ts", "config", "data", "middlewares", "restAPI", "validation"],
+  "ext": "ts",
+  "exec": "ts-node -r tsconfig-paths/register app.ts"
+}
