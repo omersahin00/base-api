@@ -33,6 +33,12 @@ const handleRoute = <T = any>(
             // İstek gerekli endpointe iletiliyor: (handler = endpoint fonksiyonu)
             const result = await handler(req, res);
 
+            // Stream edilmiş dosyalar için özel handling
+            if (result.data && typeof result.data === "object" && "streamed" in result.data && result.data.streamed) {
+                // Response zaten stream edildi, ek işlem yapma
+                return;
+            }
+
             if (result.error && result.error.length > 0) {
                 res.status(result.statusCode < 400 ? 500 : result.statusCode).send({
                     message: result.error

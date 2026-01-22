@@ -20,10 +20,12 @@ interface EndpointAttributes {
     handler: Function;
     method: "GET" | "POST" | "PUT" | "DELETE";
     auth: boolean;
+    validation?: Function;
+    middlewares?: Function[];
 }
 
 interface EndpointGroup {
-    [key: string]: EndpointAttributes | EndpointGroup; // iç içe olan yönlendirmeler için
+    [key: string]: EndpointAttributes | EndpointAttributes[] | EndpointGroup; // iç içe olan yönlendirmeler için, dizi de destekler
 }
 
 export const endpoints: EndpointGroup = {
