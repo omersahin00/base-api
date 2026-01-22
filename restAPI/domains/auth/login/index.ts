@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { User } from "@/models";
+import { User, UserAttributes } from "@/models";
 import bcrypt from "bcryptjs";
 import tokenCreate from "@/services/token/create";
 import setCookie from "@/services/cookie/set";
@@ -15,6 +15,7 @@ export interface LoginResponse {
     message: string;
     token?: string;
     longToken?: string;
+    user?: UserAttributes;
 }
 
 const login = async (
@@ -71,7 +72,8 @@ const login = async (
             message: "Giriş başarılı.",
             // Token, aynı zamanda response olarak da dönülüyor:
             token: tokenResult.token,
-            longToken: longTokenResult.token
+            longToken: longTokenResult.token,
+            user: _user
         }
     }
 };
